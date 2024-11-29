@@ -1,4 +1,4 @@
-package Model.Cards;
+package RideTheBus.src.Model.Cards;
 
 public class GroupOfCards {
     
