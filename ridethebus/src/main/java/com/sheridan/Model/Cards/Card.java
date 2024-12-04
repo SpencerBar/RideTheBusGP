@@ -1,13 +1,29 @@
 package com.sheridan.Model.Cards;
 
+
 /**
  * A class to be used as the base Card class for the project. Must be general enough to be instantiated for any Card
  * game. Students wishing to add to the code should remember to add themselves as a modifier.
  *
- * @author dancye
+ * @author Carlos Rebelo
  */
 public abstract class Card {
-    //default modifier for child classes
+    protected String suit;
+    protected String rank;
+
+    public Card(String suit, String rank) {
+        this.suit = suit;
+        this.rank = rank;
+    }
+
+    // Getters
+    public String getSuit() {
+        return suit;
+    }
+
+    public String getRank() {
+        return rank;
+    }
 
     /**
      * Students should implement this method for their specific children classes
