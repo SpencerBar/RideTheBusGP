@@ -21,21 +21,40 @@ public class Round4 {
     }
 
     public ArrayList<Player> StartRound4(){
+        Scanner input = new Scanner(System.in);
+        String[] validGuess = {"hearts", "diamonds", "clubs", "spades"}; 
       
         for (int i; i < playerList.size();i++)   
         {
             deck.shuffle();
-            cards = deck.dealCard(3);
-            
+            cards = deck.dealCards(3);
+            System.out.println("Player " + i + "'s Turn");
             for (int r; r < cards.size(); r++)
             {
-                // The system displays the first prompt “Guess the Suit”
-                System.out.println("Player " + i + "'s Turn");
-                Scanner input = new Scanner(System.in);
+                String guess = "";
+                boolean validInput = false;
+// The system displays the first prompt “Guess the Suit”
                 System.out.println("Guess the Suit!");
-                String guess = input.nextLine().toLowerCase();
+// Player(s) makes their guess.
+                while (!validInput) {
+                    System.out.println("Guess the Suit! (hearts, diamonds, clubs, spades)");
+                    guess = input.nextLine().toLowerCase();
 
-                if (guess.equals(cards.get(i).getSuit())){
+                    // Check if input is valid
+                    for (String choices : validGuess) {
+                        if (guess.equals(choices)) {
+                            validInput = true;
+                            break;
+                        }
+                    }
+                    if (!validInput) {
+                        System.out.println("Invalid input. Please guess one of the following: hearts, diamonds, clubs, spades.");
+                    }
+                }
+                System.out.println("The Card is " + cards.get(r).toString());   
+// The system scores the guess and displays the card.
+                if (guess.equals(cards.get(r).getSuit())){           
+// Players are awarded a point for correctly guessing.
                     System.out.println("Correct! Point for Player " + i);
                     playerList.get(i).addScore();
                 }
@@ -47,18 +66,5 @@ public class Round4 {
     
         return playerList;
     }
-
-
-
-
- 
-
-
-
-// Player(s) makes their guess.
-
-// The system scores the guess and displays the card.
-
-// Players are awarded a point for correctly guessing.
-
 }
+
