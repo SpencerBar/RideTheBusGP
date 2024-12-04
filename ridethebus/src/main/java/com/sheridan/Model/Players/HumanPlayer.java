@@ -70,25 +70,7 @@ public class HumanPlayer<T> extends Player<T> {
             }
         }
     }
-    
-    public Boolean redblack(PlayingCard card, String guess) {
-        Dictionary<String, Integer> dict= new Hashtable<>();
-        dict.put("hearts",1);
-        dict.put("diamonds",1);
-        dict.put("clubs",0);
-        dict.put("spades",0);
-       
-        String cardsuit = card.getSuit().toLowerCase();
-        if (dict.get(cardsuit) == dict.get(guess))
-        {   
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-     
-    }
+
 
 
 
