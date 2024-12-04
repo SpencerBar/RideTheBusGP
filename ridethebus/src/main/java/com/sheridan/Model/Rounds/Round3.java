@@ -11,10 +11,11 @@ import java.util.Scanner;
 
 import com.sheridan.Model.Cards.Card;
 import com.sheridan.Model.Cards.DeckOfCards;
+import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Players.Player;
 
 public class Round3 {
-    private ArrayList<Card> cards;
+    private ArrayList<PlayingCard> cards;
     private DeckOfCards deck;
     private ArrayList<Player> playerList;
     private Card card1;
@@ -22,7 +23,7 @@ public class Round3 {
     private Card card3;
 
     public Round3(ArrayList<Player> playerList) {
-        this.cards = new ArrayList<Card>();
+        this.cards = new ArrayList<PlayingCard>();
         this.deck =  new DeckOfCards();
         this.playerList = playerList;
 
@@ -68,7 +69,7 @@ public class Round3 {
                 }
                 // The system scores the guess and displays the card. 
                 System.out.println("The Card is " + cards.get(i).toString());
-                if(card3.getValue().equals(card1.getValue()) || card3.getValue().equals(card2.getValue()) )
+                if(card3.getValue() ==card1.getValue()) || card3.getValue() == card2.getValue())
                 {
                     correct = true;
                 }  
