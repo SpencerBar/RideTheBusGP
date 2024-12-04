@@ -155,7 +155,7 @@ public class HumanPlayer<T> extends Player<T> {
         PlayingCard card3;
         Boolean correct= false;
    
-        String[] validGuess = {"higher", "lower"};
+        String[] validGuess = {"between", "outside"};
         for (int r=0; r < cards.size()-1; r++)
             {
                 card1 = cards.get(r);
@@ -184,7 +184,7 @@ public class HumanPlayer<T> extends Player<T> {
                 }
                 // The system scores the guess and displays the card. 
                 System.out.println("The Card is " + cards.get(i).toString());
-                if(card3.getValue() ==card1.getValue() || card3.getValue() == card2.getValue())
+                if(card3.getValue() == card1.getValue() || card3.getValue() == card2.getValue())
                 {
                     correct = true;
                 }  
