@@ -1,39 +1,26 @@
 package com.sheridan.Model.Players;
 
+import java.util.ArrayList;
 
-public abstract class Player {
+import com.sheridan.Model.Cards.PlayingCard;
 
-    private String name; //the unique name for this player
+public abstract class Player<T> {
+    private int score;
 
-    /**
-     * A constructor that allows you to set the player's unique ID
-     *
-     * @param name the unique ID to assign to this player.
-     */
-    public Player(String name) {
-        this.name = name;
+    public Player() {
+        this.score = 0;
     }
 
-    /**
-     * @return the player name
-     */
-    public String getName() {
-        return name;
+    public int getScore() {
+        return score;
     }
 
-    /**
-     * Ensure that the playerID is unique
-     *
-     * @param name the player name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+    public void addScore() {
+        score++;
     }
 
-    /**
-     * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
-     * with logic to play your game.
-     */
-    public abstract void play();
-
+    public abstract void Round1(ArrayList<PlayingCard> cards , int i);
+    public abstract void Round2(ArrayList<PlayingCard> cards, int i);
+    public abstract void Round3(ArrayList<PlayingCard> cards, int i);
+    public abstract void Round4(ArrayList<PlayingCard> cards, int i);
 }
