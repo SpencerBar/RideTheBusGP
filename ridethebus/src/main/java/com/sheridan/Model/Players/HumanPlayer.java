@@ -69,9 +69,6 @@ public class HumanPlayer<T> extends Player<T> {
         }
     }
 
-
-
-
     @Override
     public void Round2(ArrayList<PlayingCard> cards, int i) {
         Boolean correct = false;
@@ -147,16 +144,14 @@ public class HumanPlayer<T> extends Player<T> {
 
     }
 
-
     @Override
     public void Round3(ArrayList<PlayingCard> cards, int i) {
         PlayingCard card1;
         PlayingCard card2;
         PlayingCard card3;
         Boolean correct= false;
-   
         String[] validGuess = {"between", "outside"};
-        for (int r=0; r < cards.size()-1; r++)
+        for (int r=0; r < cards.size()-2; r++)
             {
                 card1 = cards.get(r);
                 card2 = cards.get(r+1);
@@ -222,7 +217,6 @@ public class HumanPlayer<T> extends Player<T> {
             }
 
     }
-
 
     @Override
     public void Round4(ArrayList<PlayingCard> cards, int i) {
