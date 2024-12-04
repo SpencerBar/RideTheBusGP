@@ -2,10 +2,9 @@ package com.sheridan.Model.Cards;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class DeckOfCards {
-    private List<Card> deck;
+    private ArrayList<Card> deck;
 
     public DeckOfCards() {
         deck = new ArrayList<>();
@@ -24,11 +23,17 @@ public class DeckOfCards {
         Collections.shuffle(deck);
     }
 
-    public Card dealCard() {
-        if (deck.isEmpty()) {
-            return null;  // No cards left
+    public ArrayList<Card> dealCards(int numCards) {
+        ArrayList<Card> dealtCards = new ArrayList<Card>();
+        
+        for (int i = 0; i < numCards; i++) {
+            if (deck.isEmpty()) {
+                break; 
+            }
+            dealtCards.add(deck.remove(0)); 
         }
-        return deck.remove(0);  // Remove and return the top card
+    
+        return dealtCards;
     }
 
     public int getRemainingCards() {
