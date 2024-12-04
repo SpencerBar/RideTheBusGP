@@ -1,5 +1,10 @@
 package com.sheridan.Model.Rounds;
-// 
+/**
+ * A Class that defines round1, where each player chooses 
+ * three times whether the next card will be red or black
+ *
+ * @author Spencer Barnes
+ */
 
 import java.util.ArrayList;
 import java.util.Dictionary;

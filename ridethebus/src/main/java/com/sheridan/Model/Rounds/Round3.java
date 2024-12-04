@@ -1,4 +1,10 @@
 package com.sheridan.Model.Rounds;
+/**
+ * A Class that defines round3, where each player chooses 
+ * three times whether the next card will be between or outside
+ *
+ * @author Spencer Barnes
+ */
 
 import java.util.ArrayList;
 import java.util.Scanner;

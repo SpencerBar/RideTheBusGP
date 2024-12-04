@@ -1,4 +1,10 @@
 package com.sheridan.Model.Rounds;
+/**
+ * A Class that defines round2, where each player chooses 
+ * three times whether the next card will be higher or lower
+ *
+ * @author Spencer Barnes
+ */
 
 import java.util.ArrayList;
 import java.util.Scanner;

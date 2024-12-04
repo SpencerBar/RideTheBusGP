@@ -1,4 +1,10 @@
 package com.sheridan.Model.Rounds;
+/**
+ * A Class that defines round4, where each player chooses 
+ * three times which suit the next card will be
+ *
+ * @author Spencer Barnes
+ */
 
 import com.sheridan.Model.Cards.DeckOfCards;
 import com.sheridan.Model.Cards.GroupOfCards;
