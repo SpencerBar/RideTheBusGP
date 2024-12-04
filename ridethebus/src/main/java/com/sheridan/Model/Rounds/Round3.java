@@ -68,7 +68,7 @@ public class Round3 {
                 }
                 // The system scores the guess and displays the card. 
                 System.out.println("The Card is " + cards.get(i).toString());
-                if(card3.getValue() ==card1.getValue()) || card3.getValue() == card2.getValue()
+                if(card3.getValue() ==card1.getValue() || card3.getValue() == card2.getValue())
                 {
                     correct = true;
                 }  
