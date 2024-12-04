@@ -11,17 +11,17 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Scanner;
 
-import com.sheridan.Model.Cards.Card;
+import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Cards.DeckOfCards;
 import com.sheridan.Model.Players.Player;
 
 public class Round1 {
-        private ArrayList<Card> cards;
+        private ArrayList<PlayingCard> cards;
     private DeckOfCards deck;
     private ArrayList<Player> playerList;
 
     public Round1(ArrayList<Player> playerList) {
-        this.cards = new ArrayList<Card>();
+        this.cards = new ArrayList<PlayingCard>();
         this.deck =  new DeckOfCards();
         this.playerList = playerList;
 
@@ -83,7 +83,7 @@ public class Round1 {
         return playerList;
     }
 
-    public Boolean redblack(Card card, String guess) {
+    public Boolean redblack(PlayingCard card, String guess) {
         Dictionary<String, Integer> dict= new Hashtable<>();
         dict.put("hearts",1);
         dict.put("diamonds",1);

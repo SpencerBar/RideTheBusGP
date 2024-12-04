@@ -9,20 +9,20 @@ package com.sheridan.Model.Rounds;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.sheridan.Model.Cards.Card;
+import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Cards.DeckOfCards;
 import com.sheridan.Model.Players.Player;
 
 public class Round3 {
-    private ArrayList<Card> cards;
+    private ArrayList<PlayingCard> cards;
     private DeckOfCards deck;
     private ArrayList<Player> playerList;
-    private Card card1;
-    private Card card2;
-    private Card card3;
+    private PlayingCard card1;
+    private PlayingCard card2;
+    private PlayingCard card3;
 
     public Round3(ArrayList<Player> playerList) {
-        this.cards = new ArrayList<Card>();
+        this.cards = new ArrayList<PlayingCard>();
         this.deck =  new DeckOfCards();
         this.playerList = playerList;
 

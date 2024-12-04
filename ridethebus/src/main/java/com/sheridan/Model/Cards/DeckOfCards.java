@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class DeckOfCards extends GroupOfCards{
-    private ArrayList<Card> deck = new ArrayList<>();
+    private ArrayList<PlayingCard> deck = new ArrayList<>();
 
     public DeckOfCards() {
         super(52);
@@ -23,8 +23,8 @@ public class DeckOfCards extends GroupOfCards{
         
     }
 
-    public ArrayList<Card> dealCards(int numCards) {
-        ArrayList<Card> dealtCards = new ArrayList<Card>();
+    public ArrayList<PlayingCard> dealCards(int numCards) {
+        ArrayList<PlayingCard> dealtCards = new ArrayList<PlayingCard>();
         
         for (int i = 0; i < numCards; i++) {
             if (deck.isEmpty()) {
