@@ -1,8 +1,6 @@
 package com.sheridan.Model.Players;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Hashtable;
 import java.util.Scanner;
 
 
@@ -70,25 +68,7 @@ public class HumanPlayer<T> extends Player<T> {
             }
         }
     }
-    
-    public Boolean redblack(PlayingCard card, String guess) {
-        Dictionary<String, Integer> dict= new Hashtable<>();
-        dict.put("hearts",1);
-        dict.put("diamonds",1);
-        dict.put("clubs",0);
-        dict.put("spades",0);
-       
-        String cardsuit = card.getSuit().toLowerCase();
-        if (dict.get(cardsuit) == dict.get(guess))
-        {   
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-     
-    }
+
 
 
 
@@ -175,7 +155,7 @@ public class HumanPlayer<T> extends Player<T> {
         PlayingCard card3;
         Boolean correct= false;
    
-        String[] validGuess = {"higher", "lower"};
+        String[] validGuess = {"between", "outside"};
         for (int r=0; r < cards.size()-1; r++)
             {
                 card1 = cards.get(r);
@@ -204,7 +184,7 @@ public class HumanPlayer<T> extends Player<T> {
                 }
                 // The system scores the guess and displays the card. 
                 System.out.println("The Card is " + cards.get(i).toString());
-                if(card3.getValue() ==card1.getValue() || card3.getValue() == card2.getValue())
+                if(card3.getValue() == card1.getValue() || card3.getValue() == card2.getValue())
                 {
                     correct = true;
                 }  
