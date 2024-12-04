@@ -1,15 +1,18 @@
 package com.sheridan.Model.Cards;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class DeckOfCards {
-    private ArrayList<Card> deck;
+
+public class DeckOfCards extends GroupOfCards{
+    private ArrayList<Card> deck = new ArrayList<>();
 
     public DeckOfCards() {
-        deck = new ArrayList<>();
+        super(52);
+
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
         String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+        
+        
 
         // Create 52 cards
         for (String suit : suits) {
@@ -17,10 +20,7 @@ public class DeckOfCards {
                 deck.add(new PlayingCard(suit, rank));
             }
         }
-    }
-
-    public void shuffle() {
-        Collections.shuffle(deck);
+        
     }
 
     public ArrayList<Card> dealCards(int numCards) {

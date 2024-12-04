@@ -40,11 +40,6 @@ public class GroupOfCards {
         return size;
     }
 
-    /**
-     * @param size the max size for the group of cards
-     */
-    public void setSize(int size) {
-        this.size = size;
-    }
+    
 
 }//end class
