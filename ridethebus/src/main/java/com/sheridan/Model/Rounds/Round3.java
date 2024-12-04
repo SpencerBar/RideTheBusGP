@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Cards.DeckOfCards;
-import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Players.Player;
 
 public class Round3 {
