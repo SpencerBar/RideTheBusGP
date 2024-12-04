@@ -30,12 +30,12 @@ public class Round4 {
         Scanner input = new Scanner(System.in);
         String[] validGuess = {"hearts", "diamonds", "clubs", "spades"}; 
       
-        for (int i; i < playerList.size();i++)   
+        for (int i=0; i < playerList.size();i++)   
         {
             deck.shuffle();
             cards = deck.dealCards(3);
             System.out.println("Player " + i + "'s Turn");
-            for (int r; r < cards.size(); r++)
+            for (int r=0; r < cards.size(); r++)
             {
                 String guess = "";
                 boolean validInput = false;
@@ -69,7 +69,11 @@ public class Round4 {
                 }
             }
         }
-    
+        System.out.println("Scores after this round:");
+        for (Player player : playerList) {
+            System.out.println(player.getName() + ": " + player.getScore());
+        }
+        
         return playerList;
     }
 }

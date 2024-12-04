@@ -32,14 +32,14 @@ public class Round1 {
         Scanner input = new Scanner(System.in);
         String[] validGuess = {"red", "black"}; 
       
-        for (int i; i < playerList.size();i++)   
+        for (int i=0; i < playerList.size();i++)   
         {
             // The system shuffles the card deck.
             deck.shuffle();
             // The system deals 3 cards in a line.
             cards = deck.dealCards(3);
             System.out.println("Player " + i + "'s Turn");
-            for (int r; r < cards.size(); r++)
+            for (int r=0; r < cards.size(); r++)
             {
                 String guess = "";
                 boolean validInput = false;
@@ -75,7 +75,11 @@ public class Round1 {
                 }
             }
         }
-    
+        System.out.println("Scores after this round:");
+        for (Player player : playerList) {
+            System.out.println(player.getName() + ": " + player.getScore());
+        }
+        
         return playerList;
     }
 

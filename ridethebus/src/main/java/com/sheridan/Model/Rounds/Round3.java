@@ -29,8 +29,10 @@ public class Round3 {
     }
 
     public ArrayList<Player> StartRound3(){
-      
-        for (int i; i < playerList.size();i++)   
+        Boolean correct;
+        Scanner input = new Scanner(System.in);
+        String[] validGuess = {"higher", "lower"};
+        for (int i=0; i < playerList.size();i++)   
         {
             // The system shuffles the card deck.
             deck.shuffle();
@@ -38,11 +40,8 @@ public class Round3 {
             cards = deck.dealCards(5);
             
             System.out.println("Player " + i + "'s Turn");
-            for (int r; r < cards.size()-1; r++)
+            for (int r=0; r < cards.size()-1; r++)
             {
-                Boolean correct;
-                Scanner input = new Scanner(System.in);
-                String[] validGuess = {"between", "outside"}; 
                 card1 = cards.get(r);
                 card2 = cards.get(r+1);
                 card3 = cards.get(r+2);
@@ -74,7 +73,8 @@ public class Round3 {
                     correct = true;
                 }  
                 else if (guess.equals("between")){
-                    if (card3.getValue() > card1 && card3.getValue() < card2)
+                    if (card3.getValue() > card1.getValue() && card3.getValue() < card2.getValue())
+
                     {
                         correct = true;
                     }
@@ -84,7 +84,7 @@ public class Round3 {
                     }
                 }
                 else if(guess.equals("outside")){
-                    if (card3.getValue() < card1 && card3.getValue() > card2)
+                    if (card3.getValue() < card1.getValue() && card3.getValue() > card2.getValue())
                     {
                         correct = true;
                     }
@@ -105,7 +105,12 @@ public class Round3 {
                 }
             }
         }
-    
+        System.out.println("Scores after this round:");
+        for (Player player : playerList) {
+            System.out.println(player.getName() + ": " + player.getScore());
+        }
+
+        
         return playerList;
     }
 }

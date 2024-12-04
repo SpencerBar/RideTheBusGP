@@ -31,14 +31,14 @@ public class Round2 {
         Boolean correct;
         Scanner input = new Scanner(System.in);
         String[] validGuess = {"higher", "lower"}; 
-        for (int i; i < playerList.size();i++)   
+        for (int i=0; i < playerList.size();i++)   
         {
             // The system shuffles the card deck.
             deck.shuffle();
             // The system deals 4 cards in a line.
             cards = deck.dealCards(4);
             System.out.println("Player " + i + "'s Turn");
-            for (int r; r < cards.size()-1; r++)
+            for (int r=0; r < cards.size()-1; r++)
             {
                 card1 = cards.get(r);
                 card2 = cards.get(r+1);
@@ -105,6 +105,11 @@ public class Round2 {
                 }
             }
         }
+        System.out.println("Scores after this round:");
+        for (Player player : playerList) {
+            System.out.println(player.getName() + ": " + player.getScore());
+        }
+        
         return playerList;
     }
     
