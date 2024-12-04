@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Cards.DeckOfCards;
+import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Players.Player;
 
 public class Round1 {
@@ -62,7 +63,7 @@ public class Round1 {
                     }
                 }
                 // The system scores the guess and displays the card.
-                System.out.println("The Card is " + cards.get(i).toString());
+                System.out.println("The Card is " + cards.get(r).toString());
                 correct = redblack(cards.get(r), guess);
                 if (correct)
                 {

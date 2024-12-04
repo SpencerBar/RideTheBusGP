@@ -67,7 +67,7 @@ public class Round2 {
 
                 System.out.println("The Card is " + cards.get(r+1).toString());
                 // The system scores the guess
-                if (card1.getValue().equals((card2.getValue())))
+                if (card1.getValue() ==(card2.getValue()))
                 {
                     correct = true;
                 }
