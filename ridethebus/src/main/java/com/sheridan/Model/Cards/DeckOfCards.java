@@ -43,7 +43,7 @@ public class DeckOfCards extends GroupOfCards{
 
     //Testing
     public void displayDeck() {
-        for (Card card : deck) {
+        for (PlayingCard card : deck) {
             System.out.println(card);
         }
     }
