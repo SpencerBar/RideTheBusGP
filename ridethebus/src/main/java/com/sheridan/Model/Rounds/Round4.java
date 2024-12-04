@@ -5,10 +5,10 @@ package com.sheridan.Model.Rounds;
  *
  * @author Spencer Barnes
  */
-
+import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Cards.DeckOfCards;
 import com.sheridan.Model.Cards.GroupOfCards;
-import com.sheridan.Model.Cards.PlayingCard;
+
 import com.sheridan.Model.Players.Player;
 import java.util.ArrayList;
 
