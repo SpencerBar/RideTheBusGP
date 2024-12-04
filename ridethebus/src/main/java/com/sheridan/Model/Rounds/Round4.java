@@ -2,19 +2,19 @@ package com.sheridan.Model.Rounds;
 
 import com.sheridan.Model.Cards.DeckOfCards;
 import com.sheridan.Model.Cards.GroupOfCards;
-import com.sheridan.Model.Cards.PlayingCard;
+import com.sheridan.Model.Cards.Card;
 import com.sheridan.Model.Players.Player;
 import java.util.ArrayList;
 
 import java.util.Scanner;
 
 public class Round4 {
-    private ArrayList<PlayingCard> cards;
+    private ArrayList<Card> cards;
     private DeckOfCards deck;
     private ArrayList<Player> playerList;
 
     public Round4(ArrayList<Player> playerList) {
-        this.cards = new ArrayList<PlayingCard>();
+        this.cards = new ArrayList<Card>();
         this.deck =  new DeckOfCards();
         this.playerList = playerList;
 
@@ -25,7 +25,7 @@ public class Round4 {
         for (int i; i < playerList.size();i++)   
         {
             deck.shuffle();
-            cards.dealCards(3);
+            cards = deck.dealCard(3);
             
             for (int r; r < cards.size(); r++)
             {
