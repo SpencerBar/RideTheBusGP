@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 
 import com.sheridan.Model.Cards.PlayingCard;
+import com.sheridan.View.PlayerView;
 
 public class HumanPlayer<T> extends Player<T> {
     private String name;
@@ -14,6 +15,9 @@ public class HumanPlayer<T> extends Player<T> {
         super();
         this.name = name;
     }
+
+    // instantiate the PlayerView
+    private PlayerView view = new PlayerView();
 
 
     public String getName() {
@@ -39,7 +43,7 @@ public class HumanPlayer<T> extends Player<T> {
        
             while (!validInput) {
                 // The system displays the first prompt “Red or Black?” 
-                System.out.println("Red or Black?");
+                view.colourPrompt();
                 // Player(s) makes their guess.
                 guess = input.nextLine().toLowerCase();
                 // Check if input is valid
@@ -50,7 +54,7 @@ public class HumanPlayer<T> extends Player<T> {
                     }
                 }
                 if (!validInput) {
-                    System.out.println("Invalid input. Please guess one of the following: red, black");
+                    view.colourPromptError();
                 }
             }
             
@@ -59,12 +63,12 @@ public class HumanPlayer<T> extends Player<T> {
             correct = redblack(cards.get(r), guess);
             if (correct)
             {
-                System.out.println("Correct! Point for Player " + i);          
+                System.out.println(view.correct() + i);          
             // Players are awarded a point for correctly guessing.
                 this.addScore();
             }
             else{
-                System.out.println("Incorrect!No Point for Player " + i);
+                System.out.println(view.incorrect() + i);
             }
         }
     }
@@ -86,7 +90,7 @@ public class HumanPlayer<T> extends Player<T> {
 
                 while (!validInput) {
                     // The system displays the first prompt “Higher or Lower?”
-                    System.out.println("Higher or Lower?");
+                    view.highLowPrompt();
                     // Player(s) makes their guess.
                     guess = input.nextLine().toLowerCase();
 
@@ -98,7 +102,7 @@ public class HumanPlayer<T> extends Player<T> {
                         }
                     }
                     if (!validInput) {
-                        System.out.println("Invalid input. Please guess one of the following: higher, lower");
+                        view.highLowPromptError();
                     }
                 }
 
@@ -132,13 +136,13 @@ public class HumanPlayer<T> extends Player<T> {
                 }
                 if (correct)
                 {
-                    System.out.println("Correct! Point for Player " + i);
+                    System.out.println(view.correct() + i);
                     // Players are awarded a point for correctly guessing.
                     this.addScore();
                 }
                 else
                 {
-                    System.out.println("Incorrect!No Point for Player " + i);
+                    System.out.println(view.incorrect() + i);
                 }
             }
 
@@ -163,7 +167,7 @@ public class HumanPlayer<T> extends Player<T> {
 
                 while (!validInput) {
                     // The system displays the first prompt “Between or Outside?” 
-                    System.out.println("Between or Outside?");
+                    view.betweenOutsidePrompt();;
                     // Player(s) makes their guess.
                     guess = input.nextLine().toLowerCase();
                     // Check if input is valid
@@ -174,7 +178,7 @@ public class HumanPlayer<T> extends Player<T> {
                         }
                     }
                     if (!validInput) {
-                        System.out.println("Invalid input. Please guess one of the following: red, black");
+                        view.betweenOutsidePromptError();
                     }
                 }
                 // The system scores the guess and displays the card. 
@@ -207,12 +211,12 @@ public class HumanPlayer<T> extends Player<T> {
                 
 
                 if (correct){
-                    System.out.println("Correct! Point for Player " + i);
+                    System.out.println(view.correct() + i);
                 // Players are awarded a point for correctly guessing.
                     this.addScore();
                 }
                 else{
-                    System.out.println("Incorrect!No Point for Player " + i);
+                    System.out.println(view.incorrect() + i);
                 }
             }
 
@@ -227,10 +231,10 @@ public class HumanPlayer<T> extends Player<T> {
             String guess = "";
             boolean validInput = false;
             // The system displays the first prompt “Guess the Suit”
-            System.out.println("Guess the Suit!");
+            view.suitPrompt();
             // Player(s) makes their guess.
             while (!validInput) {
-                System.out.println("Guess the Suit! (hearts, diamonds, clubs, spades)");
+                view.suitPrompt();
                 guess = input.nextLine().toLowerCase();
 
                 // Check if input is valid
@@ -241,18 +245,18 @@ public class HumanPlayer<T> extends Player<T> {
                     }
                 }
                 if (!validInput) {
-                    System.out.println("Invalid input. Please guess one of the following: hearts, diamonds, clubs, spades.");
+                    view.suitPromptError();
                 }
             }
             System.out.println("The Card is " + cards.get(r).toString());   
             // The system scores the guess and displays the card.
             if (guess.equals(cards.get(r).getSuit())){           
             // Players are awarded a point for correctly guessing.
-                System.out.println("Correct! Point for Player " + i);
+                System.out.println(view.correct() + i);
                 this.addScore();
             }
             else{
-                System.out.println("Incorrect!No Point for Player " + i);
+                System.out.println(view.incorrect() + i);
             }
         }
       

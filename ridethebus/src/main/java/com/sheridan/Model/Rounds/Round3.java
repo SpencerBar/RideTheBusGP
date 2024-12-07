@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Cards.DeckOfCards;
 import com.sheridan.Model.Players.Player;
+import com.sheridan.View.Rounds.Round3View;
 
 public class Round3 {
     private ArrayList<PlayingCard> cards;
@@ -27,6 +28,10 @@ public class Round3 {
     }
 
     public ArrayList<Player<?>> StartRound3(){
+
+        Round3View view = new Round3View();
+        // print ROUND 3 title card
+        view.round3Start();
        
         for (int i=0; i < playerList.size();i++)   
         {
@@ -39,7 +44,7 @@ public class Round3 {
             playerList.get(i).Round3(cards, i);
             
         }
-        System.out.println("Scores after this round:");
+        view.showScores();
         for (int i= 0; i < playerList.size();i++) {
             System.out.println("Player" + i  + ": " + playerList.get(i).getScore());
         }

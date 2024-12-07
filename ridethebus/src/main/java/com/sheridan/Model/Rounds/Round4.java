@@ -8,6 +8,8 @@ package com.sheridan.Model.Rounds;
 import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Cards.DeckOfCards;
 import com.sheridan.Model.Players.Player;
+import com.sheridan.View.Rounds.Round4View;
+
 import java.util.ArrayList;
 
 public class Round4 {
@@ -23,6 +25,10 @@ public class Round4 {
     }
 
     public ArrayList<Player<?>> StartRound4(){
+
+        Round4View view = new Round4View();
+        // print ROUND 4 Title Card
+        view.round4Start();
         
         for (int i=0; i < playerList.size();i++)   
         {
@@ -31,7 +37,7 @@ public class Round4 {
             System.out.println("Player " + i + "'s Turn");
            playerList.get(i).Round4(cards, i);
         }
-        System.out.println("Scores after this round:");
+        view.showScores();
         for (int i= 0; i < playerList.size();i++) {
             System.out.println("Player" + i  + ": " + playerList.get(i).getScore());
         }

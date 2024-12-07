@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import com.sheridan.Model.Cards.DeckOfCards;
 import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.Model.Players.Player;
+import com.sheridan.View.Rounds.Round1View;
 
 public class Round1 {
     private ArrayList<PlayingCard> cards;
@@ -24,6 +25,10 @@ public class Round1 {
     }
 
     public ArrayList<Player<?>> StartRound1(){
+        // create view object
+        Round1View view = new Round1View();
+        // call title screen
+        view.round1Start();
      
       
         for (int i=0; i < playerList.size();i++)   
@@ -35,7 +40,7 @@ public class Round1 {
             System.out.println("Player " + i + "'s Turn");
             playerList.get(i).Round1(cards, i); 
         }
-        System.out.println("Scores after this round:");
+        view.showScores();
         for (int i= 0; i < playerList.size();i++) {
             System.out.println("Player" + i  + ": " + playerList.get(i).getScore());
         }
