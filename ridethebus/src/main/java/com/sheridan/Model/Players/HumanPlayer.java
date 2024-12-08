@@ -36,6 +36,7 @@ public class HumanPlayer<T> extends Player<T> {
         boolean validInput = false;
   
         for (int r=0; r < cards.size(); r++)
+
         {
             
        
@@ -52,7 +53,9 @@ public class HumanPlayer<T> extends Player<T> {
                     }
                 }
                 if (!validInput) {
+
                     view.colourPromptError();
+                    
                 }
             }
             
@@ -66,6 +69,7 @@ public class HumanPlayer<T> extends Player<T> {
                 this.addScore();
             }
             else{
+
                 System.out.println(view.incorrect() + i);
             }
         }
