@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import com.sheridan.Model.Cards.PlayingCard;
+import com.sheridan.View.PlayerView;
 
 public class AIPlayer<T> extends Player<T> {
     private String name;
+    // instantiate the PlayerView
+    private PlayerView view = new PlayerView();
 
     public AIPlayer(String name) {
         super();
@@ -30,7 +33,7 @@ public class AIPlayer<T> extends Player<T> {
 
         for (int r = 0; r < cards.size(); r++) {
             // The system displays the first prompt “Red or Black?”
-            System.out.println("Red or Black?");
+            view.colourPrompt();
             // Player(s) makes their guess.
             randomNum = random.nextInt(2);
             if (randomNum == 0) {
@@ -42,11 +45,11 @@ public class AIPlayer<T> extends Player<T> {
             System.out.println("The Card is " + cards.get(r).toString());
             correct = redblack(cards.get(r), guess);
             if (correct) {
-                System.out.println("Correct! Point for Player " + i);
+                System.out.println(view.correct() + i);
                 // Players are awarded a point for correctly guessing.
                 this.addScore();
             } else {
-                System.out.println("Incorrect! No Point for Player " + i);
+                System.out.println(view.incorrect() + i);
             }
 
         }
@@ -72,7 +75,7 @@ public class AIPlayer<T> extends Player<T> {
             String guess = "";
 
             // The system displays the first prompt “Higher or Lower?”
-            System.out.println("Higher or Lower?");
+            view.highLowPrompt();
             // Player(s) makes their guess.
             randomNum = random.nextInt(2);
             if (randomNum == 0) {
@@ -99,11 +102,11 @@ public class AIPlayer<T> extends Player<T> {
                 }
             }
             if (correct) {
-                System.out.println("Correct! Point for Player " + i);
+                System.out.println(view.correct() + i);
                 // Players are awarded a point for correctly guessing.
                 this.addScore();
             } else {
-                System.out.println("Incorrect! No Point for Player " + i);
+                System.out.println(view.incorrect() + i);
             }
         }
 
@@ -126,7 +129,7 @@ public class AIPlayer<T> extends Player<T> {
             String guess = "";
 
             // The system displays the first prompt “Between or Outside?”
-            System.out.println("Between or Outside?");
+            view.betweenOutsidePrompt();
             // Player(s) makes their guess.
             randomNum = random.nextInt(2);
             if (randomNum == 0) {
@@ -156,11 +159,11 @@ public class AIPlayer<T> extends Player<T> {
             }
 
             if (correct) {
-                System.out.println("Correct! Point for Player " + i);
+                System.out.println(view.correct() + i);
                 // Players are awarded a point for correctly guessing.
                 this.addScore();
             } else {
-                System.out.println("Incorrect! No Point for Player " + i);
+                System.out.println(view.incorrect() + i);
             }
         }
 
@@ -174,7 +177,7 @@ public class AIPlayer<T> extends Player<T> {
         {
             String guess = "";
             // The system displays the first prompt “Guess the Suit”
-            System.out.println("Guess the Suit!");
+            view.suitPrompt();
             // Player(s) makes their guess.
             
                 System.out.println("Guess the Suit! (hearts, diamonds, clubs, spades)");
@@ -193,11 +196,11 @@ public class AIPlayer<T> extends Player<T> {
             // The system scores the guess and displays the card.
             if (guess.equals(cards.get(r).getSuit())){           
             // Players are awarded a point for correctly guessing.
-                System.out.println("Correct! Point for Player " + i);
+                System.out.println(view.correct() + i);
                 this.addScore();
             }
             else{
-                System.out.println("Incorrect!No Point for Player " + i);
+                System.out.println(view.incorrect() + i);
             }
                 
             }
