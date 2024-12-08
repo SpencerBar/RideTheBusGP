@@ -1,8 +1,6 @@
 package com.sheridan.Model.Players;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Hashtable;
 
 import com.sheridan.Model.Cards.PlayingCard;
 
@@ -21,27 +19,20 @@ public abstract class Player<T> {
         score++;
     }
 
-    public abstract void Round1(ArrayList<PlayingCard> cards , int i);
+    // Abstract methods for rounds
+    public abstract void Round1(ArrayList<PlayingCard> cards, int i);
     public abstract void Round2(ArrayList<PlayingCard> cards, int i);
     public abstract void Round3(ArrayList<PlayingCard> cards, int i);
     public abstract void Round4(ArrayList<PlayingCard> cards, int i);
 
+    // Abstract method for retrieving the player's name
+    public abstract String getName();
+
+    public abstract String getGuess(String prompt, String[] validGuesses);
+
+    // Method to compare the player's guess with the card's color
     public Boolean redblack(PlayingCard card, String guess) {
-        Dictionary<String, Integer> dict= new Hashtable<>();
-        dict.put("hearts",1);
-        dict.put("diamonds",1);
-        dict.put("clubs",0);
-        dict.put("spades",0);
-       
-        String cardsuit = card.getSuit().toLowerCase();
-        if (dict.get(cardsuit) == dict.get(guess))
-        {   
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-     
+        String cardColor = card.getColor().toLowerCase(); // Retrieve card's color
+        return cardColor.equals(guess); // Compare with player's guess
     }
 }

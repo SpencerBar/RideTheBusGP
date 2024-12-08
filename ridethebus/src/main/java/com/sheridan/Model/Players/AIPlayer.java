@@ -201,8 +201,10 @@ public class AIPlayer<T> extends Player<T> {
             }
                 
             }
-            
         }
-    
-
+        @Override
+        public String getGuess(String prompt, String[] validGuesses) {
+            int randomIndex = new Random().nextInt(validGuesses.length);
+            return validGuesses[randomIndex];
+        }
 }

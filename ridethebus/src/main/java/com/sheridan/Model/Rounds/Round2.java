@@ -18,9 +18,9 @@ public class Round2 {
     private ArrayList<Player<?>> playerList;
 
 
-    public Round2 (ArrayList<Player<?>> playerList) {
+    public Round2 (ArrayList<Player<?>> playerList, DeckOfCards deck) {
         this.cards = new ArrayList<PlayingCard>();
-        this.deck =  new DeckOfCards();
+        this.deck =  deck;
         this.playerList = playerList;
 
     }
@@ -37,13 +37,12 @@ public class Round2 {
             deck.shuffle();
             // The system deals 4 cards in a line.
             cards = deck.dealCards(4);
-            System.out.println("Player " + i + "'s Turn");
-            playerList.get(i).Round2(cards, i);
-            
+            System.out.println(playerList.get(i).getName() + "'s Turn");            
+            playerList.get(i).Round2(cards, i);  
         }
         view.showScores();
         for (int i= 0; i < playerList.size();i++) {
-            System.out.println("Player" + i  + ": " + playerList.get(i).getScore());
+            System.out.println(playerList.get(i).getName() + ": " + playerList.get(i).getScore());
         }
         
         return playerList;
