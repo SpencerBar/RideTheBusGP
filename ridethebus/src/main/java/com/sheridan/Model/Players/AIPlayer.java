@@ -33,7 +33,7 @@ public class AIPlayer<T> extends Player<T> {
 
         for (int r = 0; r < cards.size(); r++) {
             // The system displays the first prompt “Red or Black?”
-            view.colourPrompt();
+            System.out.println(view.colourPrompt());
             // Player(s) makes their guess.
             randomNum = random.nextInt(2);
             if (randomNum == 0) {
@@ -41,6 +41,7 @@ public class AIPlayer<T> extends Player<T> {
             } else {
                 guess = "black";
             }
+            view.aiChoice(guess);
             // The system scores the guess and displays the card.
             System.out.println("The Card is " + cards.get(r).toString());
             correct = redblack(cards.get(r), guess);
@@ -75,20 +76,22 @@ public class AIPlayer<T> extends Player<T> {
             String guess = "";
 
             // The system displays the first prompt “Higher or Lower?”
-            view.highLowPrompt();
+            System.out.println(view.highLowPrompt());
             // Player(s) makes their guess.
             randomNum = random.nextInt(2);
             if (randomNum == 0) {
                 guess = "higher";
+               
             } else {
                 guess = "lower";
             }
-
+            view.aiChoice(guess);
             System.out.println("The Card is " + cards.get(r + 1).toString());
             // The system scores the guess
             if (card1.getValue() == (card2.getValue())) {
                 correct = true;
             } else if (guess.equals("higher")) {
+               
                 if (card1.getValue() < card2.getValue()) {
                     correct = true;
                 } else {
@@ -101,6 +104,7 @@ public class AIPlayer<T> extends Player<T> {
                     correct = false;
                 }
             }
+            
             if (correct) {
                 System.out.println(view.correct() + this.getName());
                 // Players are awarded a point for correctly guessing.
@@ -129,7 +133,7 @@ public class AIPlayer<T> extends Player<T> {
             String guess = "";
 
             // The system displays the first prompt “Between or Outside?”
-            view.betweenOutsidePrompt();
+            System.out.println(view.betweenOutsidePrompt());
             // Player(s) makes their guess.
             randomNum = random.nextInt(2);
             if (randomNum == 0) {
@@ -137,12 +141,13 @@ public class AIPlayer<T> extends Player<T> {
             } else {
                 guess = "outside";
             }
-
+            view.aiChoice(guess);
             // The system scores the guess and displays the card.
             System.out.println("The Card is " + cards.get(i).toString());
             if (card3.getValue() == card1.getValue() || card3.getValue() == card2.getValue()) {
                 correct = true;
-            } else if (guess.equals("between")) {
+            } 
+            else if (guess.equals("between")) {
                 if (card3.getValue() > card1.getValue() && card3.getValue() < card2.getValue())
 
                 {
@@ -150,7 +155,8 @@ public class AIPlayer<T> extends Player<T> {
                 } else {
                     correct = false;
                 }
-            } else if (guess.equals("outside")) {
+            } 
+            else if (guess.equals("outside")) {
                 if (card3.getValue() < card1.getValue() && card3.getValue() > card2.getValue()) {
                     correct = true;
                 } else {
@@ -162,7 +168,8 @@ public class AIPlayer<T> extends Player<T> {
                 System.out.println(view.correct() +this.getName());
                 // Players are awarded a point for correctly guessing.
                 this.addScore();
-            } else {
+            } 
+            else {
                 System.out.println(view.incorrect() + this.getName());
             }
         }
@@ -177,7 +184,7 @@ public class AIPlayer<T> extends Player<T> {
         {
             String guess = "";
             // The system displays the first prompt “Guess the Suit”
-            view.suitPrompt();
+            System.out.println(view.suitPrompt());
             // Player(s) makes their guess.
                 randomNum = random.nextInt(4);
                 if (randomNum == 0) {
@@ -189,7 +196,7 @@ public class AIPlayer<T> extends Player<T> {
                 } else {
                     guess = "spades";
                 }
-
+                view.aiChoice(guess);
                 System.out.println("The Card is " + cards.get(r).toString());   
             // The system scores the guess and displays the card.
             if (guess.equals(cards.get(r).getSuit())){           

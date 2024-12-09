@@ -33,8 +33,6 @@ public class HumanPlayer<T> extends Player<T> {
         Boolean correct = false;
         String[] validGuess = {"red", "black"};
         String guess = "";
-        
-        System.out.println(cards.size());
         for (int r=0; r < cards.size(); r++)
         {
 

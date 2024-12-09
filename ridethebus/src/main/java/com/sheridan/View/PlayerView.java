@@ -9,11 +9,11 @@ public class PlayerView {
 
     // CORRECT INCORRECT 
     public String correct(){
-        return "Correct! Point for Player ";
+        return "Correct! Point for ";
     }
 
     public String incorrect(){
-        return "Incorrect! No Point for Player ";
+        return "Incorrect! No Point for ";
     }
 
     // BLACK OR RED PROMPTS
@@ -53,5 +53,7 @@ public class PlayerView {
     }
 
     
-
+    public void aiChoice(String choice){
+        System.out.println(choice);
+    }
 }
