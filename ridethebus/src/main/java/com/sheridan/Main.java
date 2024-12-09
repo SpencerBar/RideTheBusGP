@@ -1,7 +1,10 @@
 package com.sheridan;
 
+import com.sheridan.Controller.GameController;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+         GameController controller = new GameController();
+        controller.startGame();
     }
-}
+    }

@@ -27,9 +27,12 @@ public class PlayingCard extends Card{
     }
 
     public int getValue() {
-        
         return values.get(rank);
     }
+
+    public String getColor() {
+        return (suit.equalsIgnoreCase("Hearts") || suit.equalsIgnoreCase("Diamonds")) ? "red" : "black";
+    }    
 
     @Override
     public String toString() {

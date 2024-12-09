@@ -2,8 +2,6 @@ package com.sheridan.Model.Players;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-
 import com.sheridan.Model.Cards.PlayingCard;
 import com.sheridan.View.PlayerView;
 
@@ -19,7 +17,7 @@ public class HumanPlayer<T> extends Player<T> {
     // instantiate the PlayerView
     private PlayerView view = new PlayerView();
 
-
+    @Override
     public String getName() {
         return name;
     }
@@ -263,9 +261,25 @@ public class HumanPlayer<T> extends Player<T> {
                 System.out.println(view.incorrect() + i);
             }
         }
-      
-    }
+        }
 
-    
-    
+        @Override
+public String getGuess(String prompt, String[] validGuesses) {
+    boolean validInput = false;
+    String guess = "";
+    while (!validInput) {
+        System.out.println(prompt);
+        guess = input.nextLine().toLowerCase();
+        for (String validGuess : validGuesses) {
+            if (guess.equals(validGuess)) {
+                validInput = true;
+                break;
+            }
+        }
+        if (!validInput) {
+            System.out.println("Invalid input. Please choose from: " + String.join(", ", validGuesses));
+        }
+    }
+    return guess;  
+    } 
 }

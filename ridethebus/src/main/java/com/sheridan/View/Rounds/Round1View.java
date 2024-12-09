@@ -9,13 +9,13 @@ public class Round1View {
     private ArrayList<Player<?>> playerList;
 
     public void round1Start(){
-        System.out.println(" #####    #####   ##   ##   ##   ##   #####       ## ");
+        System.out.println(" #####    #####   ##   ##   ##   ##  ## # #       ## ");
         System.out.println(" ##  ##  ##   ##  ##   ##   ###  ##  ##   ##     ### ");
         System.out.println(" ##  ##  ##   ##  ##   ##   #### ##  ##   ##      ## ");
         System.out.println(" #####   ##   ##  ##   ##   ## ####  ##   ##      ## ");
         System.out.println(" ## ##   ##   ##  ##   ##   ##  ###  ##   ##      ## ");
-        System.out.println(" ##  ##  ##   ##   ## ##    ##   ##  ##   ##      ## ");
-        System.out.println(" ##   ##  #####     ###     ##   ##   #####     #####");
+        System.out.println(" ##  ##  ##   ##  ##   ##   ##   ##  ##   ##      ## ");
+        System.out.println(" ##   ##  #####     ###     ##   ##  # ## #     ######");
     }
 
     public void showScores(){

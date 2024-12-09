@@ -1,10 +1,4 @@
 package com.sheridan.Model.Rounds;
-/**
- * A Class that defines round1, where each player chooses 
- * three times whether the next card will be red or black
- *
- * @author Spencer Barnes
- */
 
 import java.util.ArrayList;
 import com.sheridan.Model.Cards.DeckOfCards;
@@ -17,40 +11,42 @@ public class Round1 {
     private DeckOfCards deck;
     private ArrayList<Player<?>> playerList;
 
-    public Round1(ArrayList<Player<?>> playerList) {
-        this.cards = new ArrayList<PlayingCard>();
-        this.deck =  new DeckOfCards();
+    public Round1(ArrayList<Player<?>> playerList, DeckOfCards deck) {
+        this.cards = new ArrayList<>();
+        this.deck = deck; 
         this.playerList = playerList;
-
     }
 
-    public ArrayList<Player<?>> StartRound1(){
-        // create view object
+    public ArrayList<Player<?>> StartRound1() {
         Round1View view = new Round1View();
-        // call title screen
         view.round1Start();
-     
-      
-        for (int i=0; i < playerList.size();i++)   
-        {
-            // The system shuffles the card deck.
+
+        for (Player<?> player : playerList) {
             deck.shuffle();
-            // The system deals 3 cards in a line.
             cards = deck.dealCards(3);
-            System.out.println("Player " + i + "'s Turn");
-            playerList.get(i).Round1(cards, i); 
+
+            System.out.println(player.getName() + "'s Turn");
+
+            for (PlayingCard card : cards) {
+                String cardColor = card.getColor();
+                String guess = player.getGuess("Red or Black?", new String[]{"red", "black"});
+
+                if (cardColor.equalsIgnoreCase(guess)) {
+                    System.out.println("The Card is " + card + " (" + cardColor + ")");
+                    System.out.println("Correct! Point for " + player.getName());
+                    player.addScore();
+                } else {
+                    System.out.println("The Card is " + card + " (" + cardColor + ")");
+                    System.out.println("Incorrect! No Point for " + player.getName());
+                }
+            }
         }
+
         view.showScores();
-        for (int i= 0; i < playerList.size();i++) {
-            System.out.println("Player" + i  + ": " + playerList.get(i).getScore());
+        for (Player<?> player : playerList) {
+            System.out.println(player.getName() + ": " + player.getScore());
         }
-        
+
         return playerList;
     }
 }
-
-
-
-
-
-
