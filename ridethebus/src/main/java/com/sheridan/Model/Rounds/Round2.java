@@ -29,7 +29,7 @@ public class Round2 {
 
         Round2View view = new Round2View();
         // print the ROUND 2 Title
-        view.round2Start();
+        view.round2Start(); 
       
         for (int i=0; i < playerList.size();i++)   
         {
