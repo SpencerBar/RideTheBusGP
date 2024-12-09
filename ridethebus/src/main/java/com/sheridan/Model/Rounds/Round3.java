@@ -44,12 +44,9 @@ public class Round3 {
             playerList.get(i).Round3(cards, i);
             
         }
-        
         view.showScores();
-        for (int i= 0; i < playerList.size();i++) {
-            System.out.println(playerList.get(i).getName() + ": " + playerList.get(i).getScore());
-        }
 
+        
         return playerList;
     }
 }

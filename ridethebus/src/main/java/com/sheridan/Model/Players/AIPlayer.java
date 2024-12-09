@@ -45,11 +45,11 @@ public class AIPlayer<T> extends Player<T> {
             System.out.println("The Card is " + cards.get(r).toString());
             correct = redblack(cards.get(r), guess);
             if (correct) {
-                System.out.println(view.correct() + i);
+                System.out.println(view.correct() + this.getName());
                 // Players are awarded a point for correctly guessing.
                 this.addScore();
             } else {
-                System.out.println(view.incorrect() + i);
+                System.out.println(view.incorrect() + this.getName());
             }
 
         }
@@ -102,11 +102,11 @@ public class AIPlayer<T> extends Player<T> {
                 }
             }
             if (correct) {
-                System.out.println(view.correct() + i);
+                System.out.println(view.correct() + this.getName());
                 // Players are awarded a point for correctly guessing.
                 this.addScore();
             } else {
-                System.out.println(view.incorrect() + i);
+                System.out.println(view.incorrect() + this.getName());
             }
         }
 
@@ -159,11 +159,11 @@ public class AIPlayer<T> extends Player<T> {
             }
 
             if (correct) {
-                System.out.println(view.correct() + i);
+                System.out.println(view.correct() +this.getName());
                 // Players are awarded a point for correctly guessing.
                 this.addScore();
             } else {
-                System.out.println(view.incorrect() + i);
+                System.out.println(view.incorrect() + this.getName());
             }
         }
 
@@ -179,8 +179,6 @@ public class AIPlayer<T> extends Player<T> {
             // The system displays the first prompt “Guess the Suit”
             view.suitPrompt();
             // Player(s) makes their guess.
-            
-                System.out.println("Guess the Suit! (hearts, diamonds, clubs, spades)");
                 randomNum = random.nextInt(4);
                 if (randomNum == 0) {
                     guess = "hearts";
@@ -196,11 +194,11 @@ public class AIPlayer<T> extends Player<T> {
             // The system scores the guess and displays the card.
             if (guess.equals(cards.get(r).getSuit())){           
             // Players are awarded a point for correctly guessing.
-                System.out.println(view.correct() + i);
+                System.out.println(view.correct() +this.getName());
                 this.addScore();
             }
             else{
-                System.out.println(view.incorrect() + i);
+                System.out.println(view.incorrect() + this.getName());
             }
                 
             }

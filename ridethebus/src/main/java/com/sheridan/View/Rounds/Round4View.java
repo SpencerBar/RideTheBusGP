@@ -25,7 +25,7 @@ public class Round4View {
     public void showScores(){
         System.out.println("Scores after this round:");
         for (int i= 0; i < playerList.size();i++) {
-        System.out.println("Player" + i  + ": " + playerList.get(i).getScore());
+        System.out.println("Player " + (i+1)  + ": " + playerList.get(i).getScore());
         }
     }
 }

@@ -1,3 +1,4 @@
+
 package com.sheridan.Model.Rounds;
 /**
  * A Class that defines round4, where each player chooses 
@@ -35,14 +36,11 @@ public class Round4 {
             deck.shuffle();
             cards = deck.dealCards(3);
             System.out.println(playerList.get(i).getName() + "'s Turn");
-            playerList.get(i).Round4(cards, i);
+           playerList.get(i).Round4(cards, i);
         }
         view.showScores();
-        for (int i= 0; i < playerList.size();i++) {
-            System.out.println(playerList.get(i).getName() + ": " + playerList.get(i).getScore());
-        }
+        
         
         return playerList;
     }
 }
-

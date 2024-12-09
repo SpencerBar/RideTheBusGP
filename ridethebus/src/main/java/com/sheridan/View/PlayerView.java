@@ -17,8 +17,8 @@ public class PlayerView {
     }
 
     // BLACK OR RED PROMPTS
-    public void colourPrompt(){
-        System.out.println("Red or Black?");
+    public String colourPrompt(){
+        return "Red or Black?";
     }
 
     public void colourPromptError(){
@@ -26,8 +26,8 @@ public class PlayerView {
     }
 
     // HIGHER OR LOWER PROMPTS
-    public void highLowPrompt(){
-        System.out.println("Higher or Lower?");
+    public String highLowPrompt(){
+        return "Higher or Lower?";
     }
 
     public void highLowPromptError(){
@@ -35,8 +35,8 @@ public class PlayerView {
     }
 
     // BETWEEEN OUTSIDE PROMPTS
-    public void betweenOutsidePrompt(){
-        System.out.println("Between or Outside?");
+    public String betweenOutsidePrompt(){
+       return "Between or Outside?";
     }
 
     public void betweenOutsidePromptError(){
@@ -44,17 +44,13 @@ public class PlayerView {
     }
 
     // SUIT PROMPT
-    public void suitPrompt(){
-        System.out.println("Guess the suit! (hearts, diamonds, clubs, spades)");
+    public String suitPrompt(){
+        return "Guess the suit! (hearts, diamonds, clubs, spades)";
     }
 
     public void suitPromptError(){
         System.out.println("Invalid input. Please guess one of the following: hearts, diamonds, clubs, spades.");
     }
-    
-
-
-
 
     
 

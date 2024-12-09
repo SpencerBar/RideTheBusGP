@@ -20,32 +20,14 @@ public class Round1 {
     public ArrayList<Player<?>> StartRound1() {
         Round1View view = new Round1View(playerList);
         view.round1Start();
-
-        for (Player<?> player : playerList) {
+        for (int i=0; i < playerList.size();i++) {
             deck.shuffle();
             cards = deck.dealCards(3);
-
-            System.out.println(player.getName() + "'s Turn");
-
-            for (PlayingCard card : cards) {
-                String cardColor = card.getColor();
-                String guess = player.getGuess("Red or Black?", new String[]{"red", "black"});
-
-                if (cardColor.equalsIgnoreCase(guess)) {
-                    System.out.println("The Card is " + card + " (" + cardColor + ")");
-                    System.out.println("Correct! Point for " + player.getName());
-                    player.addScore();
-                } else {
-                    System.out.println("The Card is " + card + " (" + cardColor + ")");
-                    System.out.println("Incorrect! No Point for " + player.getName());
-                }
-            }
+            System.out.println(playerList.get(i).getName() + "'s Turn");
+            playerList.get(i).Round1(cards, i);
         }
 
         view.showScores();
-        for (Player<?> player : playerList) {
-            System.out.println(player.getName() + ": " + player.getScore());
-        }
 
         return playerList;
     }
