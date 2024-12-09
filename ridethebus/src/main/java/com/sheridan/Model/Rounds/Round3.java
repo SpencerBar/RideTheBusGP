@@ -20,9 +20,9 @@ public class Round3 {
     private ArrayList<Player<?>> playerList;
    
 
-    public Round3(ArrayList<Player<?>> playerList) {
+    public Round3(ArrayList<Player<?>> playerList, DeckOfCards deck) {
         this.cards = new ArrayList<PlayingCard>();
-        this.deck =  new DeckOfCards();
+        this.deck =  deck;
         this.playerList = playerList;
 
     }
@@ -40,16 +40,16 @@ public class Round3 {
             // The system deals with 5 cards in a line.
             cards = deck.dealCards(5);
             
-            System.out.println("Player " + i + "'s Turn");
+            System.out.println(playerList.get(i).getName() + "'s Turn");
             playerList.get(i).Round3(cards, i);
             
         }
+        
         view.showScores();
         for (int i= 0; i < playerList.size();i++) {
-            System.out.println("Player" + i  + ": " + playerList.get(i).getScore());
+            System.out.println(playerList.get(i).getName() + ": " + playerList.get(i).getScore());
         }
 
-        
         return playerList;
     }
 }
