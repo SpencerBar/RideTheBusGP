@@ -7,6 +7,9 @@ import com.sheridan.Model.Players.Player;
 public class Round2View {
 
     private ArrayList<Player<?>> playerList;
+    public Round2View(ArrayList<Player<?>> playerList){
+        this.playerList = playerList;
+    }
 
     public void round2Start(){
         System.out.println(" #####    #####   ##   ##   ##   ##   #####      ######  ");

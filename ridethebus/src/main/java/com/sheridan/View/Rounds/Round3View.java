@@ -8,6 +8,9 @@ public class Round3View {
     
 
     private ArrayList<Player<?>> playerList;
+    public Round3View(ArrayList<Player<?>> playerList){
+        this.playerList = playerList;
+    }
 
 
 

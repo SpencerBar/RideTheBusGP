@@ -26,7 +26,7 @@ public class Round4 {
 
     public ArrayList<Player<?>> StartRound4(){
 
-        Round4View view = new Round4View();
+        Round4View view = new Round4View(playerList);
         // print ROUND 4 Title Card
         view.round4Start();
         

@@ -18,7 +18,7 @@ public class Round1 {
     }
 
     public ArrayList<Player<?>> StartRound1() {
-        Round1View view = new Round1View();
+        Round1View view = new Round1View(playerList);
         view.round1Start();
 
         for (Player<?> player : playerList) {

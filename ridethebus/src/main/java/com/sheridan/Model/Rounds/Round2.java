@@ -27,7 +27,7 @@ public class Round2 {
 
     public ArrayList<Player<?>> StartRound2(){
 
-        Round2View view = new Round2View();
+        Round2View view = new Round2View(playerList);
         // print the ROUND 2 Title
         view.round2Start(); 
       

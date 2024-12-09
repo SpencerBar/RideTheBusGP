@@ -29,7 +29,7 @@ public class Round3 {
 
     public ArrayList<Player<?>> StartRound3(){
 
-        Round3View view = new Round3View();
+        Round3View view = new Round3View(playerList);
         // print ROUND 3 title card
         view.round3Start();
        
