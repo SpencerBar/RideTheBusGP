@@ -112,61 +112,56 @@ public class HumanPlayer<T> extends Player<T> {
 
     }
 
-    @Override
     public void Round3(ArrayList<PlayingCard> cards, int i) {
-        PlayingCard card1;
-        PlayingCard card2;
-        PlayingCard card3;
-        Boolean correct= false;
+        if (cards.size() < 3) {
+            System.out.println("Not enough cards to play Round 3.");
+            return;
+        }
+    
+        boolean correct = false;
         String[] validGuess = {"between", "outside"};
-        for (int r=0; r < cards.size()-2; r++)
-            {
-                card1 = cards.get(r);
-                card2 = cards.get(r+1);
-                card3 = cards.get(r+2);
-                // The system flips and displays the first two cards in the line.
-                System.out.println("First Card: " + card1.toString() + " Second Card: " + card2.toString());
-                String guess = "";
-                guess = getGuess(view.betweenOutsidePrompt(), validGuess);
-                // The system scores the guess and displays the card. 
-                System.out.println("The Card is " + cards.get(i).toString());
-                if(card3.getValue() == card1.getValue() || card3.getValue() == card2.getValue())
-                {
+        
+        for (int r = 0; r < cards.size() - 2; r++) {
+            PlayingCard card1 = cards.get(r);
+            PlayingCard card2 = cards.get(r + 1);
+            PlayingCard card3 = cards.get(r + 2);
+    
+            // Display the first two cards
+            System.out.println("First Card: " + card1 + " Second Card: " + card2);
+    
+            // Get the player's guess
+            String guess = getGuess(view.betweenOutsidePrompt(), validGuess);
+    
+            // Reveal the third card
+            System.out.println("The Card is " + card3);
+    
+            // Determine if the guess is correct
+            if (card3.getValue() == card1.getValue() || card3.getValue() == card2.getValue()) {
+                correct = true; // Exact match with one of the bounds
+            } else if (guess.equals("between")) {
+                if ((card3.getValue() > Math.min(card1.getValue(), card2.getValue())) &&
+                    (card3.getValue() < Math.max(card1.getValue(), card2.getValue()))) {
                     correct = true;
-                }  
-                else if (guess.equals("between")){
-                    if (card3.getValue() > card1.getValue() && card3.getValue() < card2.getValue())
-
-                    {
-                        correct = true;
-                    }
-                    else
-                    {
-                        correct = false;
-                    }
+                } else {
+                    correct = false;
                 }
-                else if(guess.equals("outside")){
-                    if (card3.getValue() < card1.getValue() && card3.getValue() > card2.getValue())
-                    {
-                        correct = true;
-                    }
-                    else
-                    {
-                        correct = false;
-                    }   
-                }
-                
-
-                if (correct){
-                    System.out.println(view.correct() +this.getName());
-                // Players are awarded a point for correctly guessing.
-                    this.addScore();
-                }
-                else{
-                    System.out.println(view.incorrect() +this.getName());
+            } else if (guess.equals("outside")) {
+                if ((card3.getValue() < Math.min(card1.getValue(), card2.getValue())) ||
+                    (card3.getValue() > Math.max(card1.getValue(), card2.getValue()))) {
+                    correct = true;
+                } else {
+                    correct = false;
                 }
             }
-
+    
+            // Display the result and update the score
+            if (correct) {
+                System.out.println(view.correct() + this.getName());
+                this.addScore();
+            } else {
+                System.out.println(view.incorrect() + this.getName());
+            }
+        }
     }
 
     @Override
